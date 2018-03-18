@@ -295,13 +295,13 @@ uint32_t imagecrc = 0;
 
 int hsptr[] = { 0x990, 0x9b8, 0xaf0, 0xb40, 0xb90, 0xa70 };
 #define knockptr (persistbuf - 0x32000 + hsptr[0] - 0xE4c + 0x28)
-#define langptr knockptr - 0xa0
-#define ballspergameptr knockptr - 0x30
-#define lightptr knockptr + 0x28CFC
-#define volptr persistbuf - 0x32000 + hsptr[0] - 0xE4c + 0x28 + 0x803734C
-#define profanityptr knockptr - 0xb0
-#define scareptr knockptr + 0x80
-#define freeplayptr knockptr - 0x10
+#define langptr (knockptr - 0xa0)
+#define ballspergameptr (knockptr - 0x30)
+#define lightptr (knockptr + 0x28CFC)
+#define volptr (persistbuf - 0x32000 + hsptr[0] - 0xE4c + 0x28 + 0x803734C)
+#define profanityptr (knockptr - 0xb0)
+#define scareptr (knockptr + 0x80)
+#define freeplayptr (knockptr - 0x10)
 
 #define DLLCRC_TPAGBDLL 0x171a7d69
 #define DLLCRC_SPAGBDLL 0x2d0ebf1d
