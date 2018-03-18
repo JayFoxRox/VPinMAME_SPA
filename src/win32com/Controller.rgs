@@ -1,0 +1,23 @@
+HKCR
+{
+	VPinSPA.Controller.1 = s 'Visual PinSPA Controller'
+	{
+		CLSID = s '{F389C8B7-144F-4C63-A2E3-246D168F9D3A}'
+	}
+	VPinSPA.Controller = s 'Visual PinSPA Controller'
+	{
+		CLSID = s '{F389C8B7-144F-4C63-A2E3-246D168F9D3A}'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {F389C8B7-144F-4C63-A2E3-246D168F9D3A} = s 'Visual PinSPA Controller'
+		{
+			ProgID = s 'VPinSPA.Controller.1'
+			VersionIndependentProgID = s 'VPinSPA.Controller'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+		}
+	}
+}

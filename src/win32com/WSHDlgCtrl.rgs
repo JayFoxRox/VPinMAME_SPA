@@ -1,0 +1,26 @@
+HKCR
+{
+	Dialog.SPAWSHDlgCtrl.1 = s 'SPAWSHDlgCtrl Class'
+	{
+		CLSID = s '{E3BA6587-82A7-46A7-AEFE-7A75CAD51F34}'
+	}
+	Dialog.SPAWSHDlgCtrl = s 'SPAWSHDlgCtrl Class'
+	{
+		CLSID = s '{E3BA6587-82A7-46A7-AEFE-7A75CAD51F34}'
+		CurVer = s 'Dialog.SPAWSHDlgCtrl.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {E3BA6587-82A7-46A7-AEFE-7A75CAD51F34} = s 'SPAWSHDlgCtrl Class'
+		{
+			ProgID = s 'Dialog.SPAWSHDlgCtrl.1'
+			VersionIndependentProgID = s 'Dialog.WSHDlgCtrl'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{EEFE1916-E8D6-4C74-BEFB-F22E1136783E}'
+		}
+	}
+}

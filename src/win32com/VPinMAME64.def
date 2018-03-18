@@ -1,0 +1,9 @@
+; VPinSPA.def : Declares the module parameters.
+
+LIBRARY      "VPinSPA64.DLL"
+
+EXPORTS
+	DllCanUnloadNow     PRIVATE
+	DllGetClassObject   PRIVATE
+	DllRegisterServer   PRIVATE
+	DllUnregisterServer	PRIVATE

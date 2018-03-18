@@ -1,0 +1,7 @@
+cpunum_get_localtime() called for invalid cpu num!
+using performance counter for timing ... cycles/second = 10000000
+width 640, height 400 depth 16
+set visible area 0-0 0-0
+Machine reset
+set visible area 0-256 0-64
+Physical width 642, height 402

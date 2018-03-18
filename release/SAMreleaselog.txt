@@ -1,0 +1,487 @@
+official rev r4466
+Added AC/DC V1.70.0 Pro and LE 
+ ----------------------
+official rev r4453
+ ----------------------
+SAMBuild version 3.0
+official rev 4445
+S.A.M. ---> To official VPinMAME build
+Added slots for X-Men 151 and 151 LE colored DMD mod
+Added The Walking Dead V1.60.0 Pro and LE 
+Set Transformers to 12-port aux board to enable LE solenoids [DJRobX]
+Apply modulated light code to WOF Mini-DMD lights and send through RGBLed channel [DJRobX]
+Allocate larger chunks of memory to avoid crashing issues. Fixes TWD + DMDDevice.dll crash in some maybe more cases [DJRobX]
+Add support for IJ4 aux board [DJRobX]
+Improve smoothness of WOF wheel [DJRobX]
+Mech for wheel of fortune wheel [DJRobX]
+ ----------------------
+SAMBuild version 2.9
+official rev 4317
+S.A.M.
+Correct typo
+Additional revisions to make an ugly hack prettier [DJRobX]
+Bring back 8 port AUX board check; hopefully will enable Metallica LE AUX board for coffin magnet
+Fix AC/DC LE solenoid 47 [DJRobX]
+Fix SHA1 checksums for fg_700af and bdk_240 
+Support multi-character serial writes to DMDExt support. Allows Metallica 1.7 Color to work [DJRobX]
+Make Mustang LE serial LED speed hack apply to color ROM also [DJRobX]
+Fix color patch ROM crash when JIT in use [DJRobX]
+ ----------------------
+SAMbuild version 2.8b02
+official rev 4168 (minus r4154 enter new 2.9 cycle)
+ ----------------------
+SAMbuild version 2.8b01
+official rev 4167 (minus r4154 enter new 2.9 cycle)
+S.A.M.
+Add slots for user customized full color LE game code
+Add slots for Mustang Pro and LE/The Walking Dead Pro and LE user customized full color game code
+ ----------------------
+SAMbuild version 2.8b
+official rev 4166 (minus r4154 enter new 2.9 cycle)
+ ----------------------
+SAMbuild version 2.8!
+official rev 4156 (minus r4154 enter new 2.9 cycle)
+S.A.M.
+Support ACDC LE flame aux board. Outputs on lights 150-157. [DJRobX]
+Add checksums/documentation for currently missing catalog game code
+ ----------------------
+version 2.46a
+official rev 4143
+gts3.c - Reduce vblank interrupt frequency for GTS3 DMD, causing animations to run too fast in Tee'd Off [DJRobX]
+ ----------------------
+version 2.46
+official rev 4142
+gts3.c - Reduce vblank interrupt frequency for GTS3 DMD, causing animations to run too fast in Tee'd Off [DJRobX]
+at91.c - Fix bug in serial receive code [DJRobX]
+ ----------------------
+version 2.45d
+official rev 4127
+ ----------------------
+version 2.45c
+official rev 4121
+Add support for Metallica LE Magnet Processor aux board. Two control lines 
+output on unused solenoids 57 and 58 [DJRobX]
+ ----------------------
+version 2.45b
+official rev 4119
+ ----------------------
+version 2.45a
+official rev 4117
+ ----------------------
+version 2.45
+official rev 4115
+S.A.M. 
+merge all commits from DJRobX repo 20161128 01:17
+ ----------------------
+version 2.44
+S.A.M. 
+merge all commits from DJRobX repo
+ ----------------------
+version 2.43b
+official rev 4098
+S.A.M. 
+sam.c - forward console data [lucky1]
+ ----------------------
+version 2.43a
+official rev 4088
+S.A.M. 
+flag mini-display for World Poker Tour and Wheel of Fortune
+ ----------------------
+version 2.43
+official rev 4080
+ ----------------------
+version 2.42
+official rev 4062
+ ----------------------
+version 2.41a
+official rev 4059
+ ----------------------
+version 2.41
+S.A.M. 
+AUX solenoids, modulated flashers, ROM controlled GI support in sam.c [djrobx]
+ ----------------------
+version 2.40a
+official rev 4044
+S.A.M. 
+in sam.c *line = hew[temp] + 63; remove + 63 to make the colors look right [lucky1]
+ ----------------------
+version 2.40
+official rev 4028
+ ----------------------
+version 2.39a
+official rev 4019
+S.A.M. 
+Merge Latest SAM fixes [DJRobX]
+ ----------------------
+version 2.39
+official rev 3987
+S.A.M. 
+Stern SAM LED support, JIT compiler, and improved timings [DJRobX]
+ ----------------------
+version 2.38f
+official rev 3979
+S.A.M. 
+Restore duplicated sets that are defined under different file names - they have separate DOF configs
+ ----------------------
+version 2.38e
+official rev 3974
+S.A.M. 
+Delete duplicated sets that are defined under different file names:
+
+by35games.c
+missworld (kissc)
+penthouse (hglbtrtb)
+ratfink (startreb)
+
+s6games.c
+blkou_hf (blkou_l1)
+
+If needed, the table script can be modified to use the officially supported set and write to an alternate vram
+
+Delete remixes
+
+sam.c
+potc_600af_c
+trn_1741
+trn_1741h
+twd_1191
+
+there are no "official" soundtrack remixes or DMD colored rom sets - Patch the code and then set to ignore CRC to load
+
+Stern color DMD patched code that require a larger file size than the official code remain as they will not load at all otherwise 
+ ----------------------
+version 2.38d
+official rev 3970
+S.A.M. 
+correct file length for trn_1741h - there are no "official" soundtrack remixes or DMD colored rom sets - Set to ignore CRC
+ ----------------------
+version 2.38c
+official rev 3961
+S.A.M. 
+update missing set information from official MAME sam.cpp driver source
+ ----------------------
+version 2.38b
+official rev 3960
+S.A.M. 
+reconcile set names with official driver.c
+added Iron Man (V1.83)
+
+** WARNING FOR PLAYERS !! **
+there are set name changes that will require changing Const cGameName in VP table scripts:
+Iron Man & Iron Man Vault Edition
+X-Men
+The Avengers
+ ----------------------
+version 2.38a
+official rev 3948
+S.A.M. 
+reconcile release dates for rom versions with Stern readmes
+match rom version numbers in descriptions with rom boot screens
+add comments in driver.c for missing roms documented in Stern readmes
+ ----------------------
+version 2.38
+official rev 3943
+sam.c Fix LE Solenoid Aux board support [DJRobX]
+ ----------------------
+version 2.37
+official rev 3909
+ ----------------------
+version 2.36
+official rev 3896
+ ----------------------
+version 2.35a
+Added slot for Metallica 170 colored DMD mod
+ ----------------------
+version 2.35
+official rev 3892
+Added Metallica 170 Pro and LE 
+Added Spider-Man Vault Edition (V1.01)
+----------------------
+version 2.34
+official Version 2.7
+----------------------
+version 2.33
+official rev 3888
+----------------------
+version 2.32
+official rev 3883
+----------------------
+version 2.31
+official rev 3870
+Added Spider-Man Vault Edition (V1.0)
+----------------------
+version 2.30
+official rev 3863
+----------------------
+version 2.29
+official rev 3862
+----------------------
+version 2.28
+official rev 3855
+----------------------
+version 2.27a
+official rev 3829 (fix PinSound patch)
+----------------------
+version 2.27
+official rev 3822 (incl. PinSound patch)
+Added Mustang 145 Pro, LE, and BOSS
+----------------------
+version 2.26
+official rev 3810
+Added Star Trek Limited Edition (V1.40)
+Added Tron: Legacy Pro (V1.60)
+Added X-Men Limited Edition (V1.20)
+Added X-Men Limited Edition (V1.22)
+----------------------
+version 2.25a
+upgrade to official rev 3805
+Added Batman 2.4
+Added Transformers Pro 1.2
+----------------------
+version 2.25
+upgrade to official rev 3804
+Some housekeeping:
+Added Mustang 140 LE and BOSS
+Added Batman 1.5 and 1.6
+Added Family Guy 4.0 English
+Added Family Guy 4.0 English, German
+Added Family Guy 7.0 English, French
+Added Family Guy 7.0 English, Spanish
+Added NBA 5.0
+Added POTC 1.1 English, French
+Added POTC 1.1 English, Italian
+Added POTC 1.1 English, French
+Added POTC 1.1 German, French
+Added POTC 3.0 English, French
+Added POTC 3.0 English, Italian
+Added POTC 3.0 English, Spanish
+Added POTC 3.0 German, French
+Added POTC 4.0 English, Spanish
+Added Spiderman 2.0 English
+Added S.A.M. System Flash Boot 2.1
+Added S.A.M. System Flash Boot 2.3
+----------------------
+version 2.24
+upgrade to official rev 3803
+Added avg 170 Pro and LE
+Added color rom support for Pin2DMD using extended memory for the following:
+AC/DC, Metallica, Star Trek, and The Avengers
+----------------------
+version 2.23
+upgrade to official rev 3776
+----------------------
+version 2.22
+upgrade to official rev 3757
+Added twd 156 Pro and LE
+----------------------
+version 2.21
+upgrade to official rev 3753
+Added POTC colored and twd 153 Pro and LE
+----------------------
+version 2.20
+upgrade to official rev 3750
+----------------------
+version 2.19
+upgrade to official rev 3742
+comments from toxie
+- introduce RawDmdColoredPixels to the interface (can be used instead of RawDmdPixels to get the 0..255RGB levels instead of 0..100brightness if you prefer pre-colorized data)
+  (VP10/core.vbs will have support for this with the next build)
+- slightly optimize RawDmdPixels (uses 8bit-chars like intended now, thanks tmek for noticing that)
+----------------------
+version 2.18
+upgrade to official rev 3739
+Added new unofficial TFTC 4.00 and JP 6.00 MODs
+----------------------
+version 2.17
+upgrade to official rev 3734
+----------------------
+version 2.16
+upgrade to official rev 3725
+Added TWD 141 PRO and LE
+----------------------
+version 2.15
+upgrade to official rev 3708
+New ChangedLEDsState function in controller to enable filling an host defined integer buffer (Last in IDL for back compatibility)
+----------------------
+version 2.14
+upgrade to official rev 3690
+Added The Walking Dead 128 PRO and LE, Metallica 164 PRO and LE
+----------------------
+version 2.13
+upgrade to official rev 3665
+Lost of sound improvements by official vpm team
+----------------------
+version 2.12
+upgrade to official rev 3664
+Added The Walking Dead 1.25 PRO and LE
+----------------------
+version 2.11
+Added The Walking Dead 1.24 PRO and LE
+Cloned Star Trek rom to ratfink rom, for Hauntfreaks mod to have a different DOF Config
+Fixed Pindmd1 version
+----------------------
+version 2.10
+upgrade to official vpm rev 3660
+fix roms with DCS sound
+----------------------
+version 2.09
+upgrade to official vpm rev 3650 including
+better support of arm7, idsa roms such as v1 and ice cold beer
+----------------------
+version 2.08
+upgrade to official vpm rev 3642
+Added Star Trek Stern 1.61 Pro and LE
+Added Tron Remix PRO and LE
+Added Rambo MOD Raven
+----------------------
+version 2.07
+upgrade to official vpm rev 3638
+Added Star Trek Stern 1.60 Pro and LE
+----------------------
+version 2.06
+upgrade to official vpm rev 3622
+Added Last Action Hero new 1.13
+----------------------
+version 2.05
+upgrade to official revision 3620
+Added TWD 1.19 PRO and LE
+----------------------
+version 2.04
+upgrade to official revision 3616 
+Fixed number of leds displayed at the same time for WPT
+Added Flipper Football 256*64 to pindmd
+Improved Mystery Castle dmd frame rate 
+----------------------
+version 2.03
+Fixed Tron roms country issue
+Improved pindmd display for 192*64 on 128*32 real dmd
+----------------------
+Version 2.02
+Improved mini dmd method for tables like World Poker Tour
+separated cpu clock and timers for CSI and IJ4 from the rest of SAM games to prevent timer delays
+updated to VPM official revision 2594
+----------------------
+Upgrade to Vpinmame 2.6
+Added The Walking Dead first roms PRO and LE
+Fixed IJ4 and CSI through issues
+Better sound synchronization
+----------------------
+Added Mustang 1.40
+Cloned Harlem Glob Trotter hglbtrtb to a penthouse rom so it will have his own configtool config
+----------------------
+Added Miss World, cloned KISSC rom to have a separate entry for configtool
+Upgraded to latest trunk svn repository of pinmame source
+----------------------
+Added Metallica PRO, PRO Led (?) and LE 1.63
+Added Demolition Time 1.01
+Added Mars God of War french
+----------------------
+Added Star Trek PRO and LE 1.50
+----------------------
+Added Iron Man Vault Edition Pro 1.83
+Added ACDC LE 1.68
+Mystery Castle 16 shades to pindmd fix
+Reviewed the vpinmame to revision 3553 of today
+----------------------
+Added Iron Man Vault Edition Pro 1.82
+----------------------
+Added Iron Man Vault Edition Pro 1.81
+----------------------
+Added ACDC 1.68 PRO
+----------------------
+Added Metallica 1.6 Pro and LE
+Added Rush pinball by Dave Astill
+Found some missing Stern SAM from MAME MESS SVN
+----------------------
+Added Mustang 1.3 PRO and LE
+----------------------
+Fix in dmd color init
+Added Guns and Roses French
+Added Demolition Time, freewpc mode of Demolition Man
+----------------------
+Added Carnival Spooky 2.0
+Added Tron 1.74 other cpu
+Added Avatar 2.00
+Fixed some World Poker Tour roms hash, Spiderman
+----------------------
+Updated to latest rev 3535
+Added Multi color DMD functionality
+Added Mustang 1.20
+----------------------
+Added Spiderman 2.61
+----------------------
+Added Metallica 1.51 PRO and LE version
+----------------------
+Added Metallica 1.50 PRO and LE version
+----------------------
+Exact copy of official unified version + SAM roms
+----------------------
+pindmd/legacy unified version 1.0a
+fixed one crash at start of some roms, remove splashscreen
+----------------------
+pindmd/legacy unified version 1.0
+*one version cabinet option/pindmd option
+*added Metallica 1.20 PRO and LE
+*added Star Trek 1.41, 1.42 LE, but not working properly
+----------------------
+rev 3497 Unity 1.2
+*added x-men PRO and LE Final 1.51
+----------------------
+rev 3497 Unity 1.1
+*added x-men PRO and LE Final 1.50
+----------------------
+rev 3497 Unity 1.0
+*added Unity3D support
+----------------------
+rev 3497 1.2
+*added Star Trek 1.4
+----------------------
+rev 3497 1.1
+*fixed some issues about metallica and acdc roms
+----------------------
+rev 3497 1.0
+*Setting DCS sample rate to 31,250 Hz
+*Added Monster Bash 0.5
+*Restored pragma directives deleted by mistake
+*Another sound ROM for Io Moon
+*OKI 6376 sound quality improved a great deal
+----------------------
+rev 3490 1.2
+*Added xmen 1.00
+*SS2 Enabled
+----------------------
+rev 3490 1.1
+Compiled with c/c++ optimization for better performance!
+----------------------
+rev 3490 1.0
+*Added another ifdef for PinMAME
+*Added Sleic Io Moon, support for OKI 6376 chip.
+*Made some Inder games sound a lot nicer then before
+*Adjusted music / speech pitch for Metal Man, added known Centaur ROMs.
+*Added Godzilla 0.90
+*Good sound ROMs were found for Moon Light
+----------------------
+rev 3484 1.0
+*Added Apollo14 (game 5.01, display 4.01)
+*Added King Kong 1.0
+----------------------
+rev 3482 1.0
+*Added these roms
+*Monopoly (2.51 Italian display)
+*No Fear: Dangerous Sports (1.1 Export)
+*ID4: Independence Day (2.01 French)
+*ID4: Independence Day (2.02 French)
+*Star Trek Pro 1.3
+----------------------
+rev 3480 1.01a for non Pindmd version only
+*fixed the x and y position of the dmd screen
+----------------------
+rev 3480 1.01
+*Added Big Buck Hunter Pro 1.70
+----------------------
+*Added PINDMD1 version
+----------------------
+rev 3480 1.0
+* Roms added since latest version, Star Trek 1.20 and a lot of old roms that were missing.
+* Fixed crash and slowness at vp exit when running in Hyperpin, and focus issue when vp starts within HP for SAM tables
+-----------------------
