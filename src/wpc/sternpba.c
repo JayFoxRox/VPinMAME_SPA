@@ -522,7 +522,7 @@ static MACHINE_RESET(spa) {
 	{
 		nv.volume = 80;
 		nv.freeplay = 1;
-		stern_set_free_play_fn(1);
+		stern_set_free_play_fn();
 		stern_set_volume_fn(0, 80);
 	}
 }
