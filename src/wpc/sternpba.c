@@ -7,7 +7,7 @@ sending him a donation for his hard work.
 https://github.com/JayFoxRox/pba-tools
 https://github.com/JayFoxRox/stern-pba-emu
 
-Licensed under the original MAME license in accoro be used with Visual PinSPA.  Other required change, in driver.c:
+Licensed under the original MAME license.  Other required change, in driver.c:
 
 DRIVER(spagb, 100)
 
@@ -195,11 +195,6 @@ FILE *fpSND = NULL;
 
 #define SPA_COMINPORT CORE_COREINPORT
 
-static int spa_getSol(int solNo)
-{
-	return stern_get_coil_state_fn(solNo);
-}
-
 static void spasnd_init(struct sndbrdData *brdData) { }
 
 //Sound Interface
@@ -302,6 +297,7 @@ int hsptr[] = { 0x990, 0x9b8, 0xaf0, 0xb40, 0xb90, 0xa70 };
 #define profanityptr (knockptr - 0xb0)
 #define scareptr (knockptr + 0x80)
 #define freeplayptr (knockptr - 0x10)
+#define flipenableptr (knockptr + 0xDEE)
 
 #define DLLCRC_TPAGBDLL 0x171a7d69
 #define DLLCRC_SPAGBDLL 0x2d0ebf1d
@@ -605,7 +601,10 @@ static SWITCH_UPDATE(spa) {
 }
 
 
-
+static int spa_getSol(int solNo)
+{
+	return 0;
+}
 
 /********************/
 /*  VBLANK Section  */
@@ -637,9 +636,24 @@ static INTERRUPT_GEN(spa_vblank)
 	{
 		UINT8 value = stern_get_coil_state_fn(i);
 		coreGlobals.modulatedSolenoids[CORE_MODSOL_CUR][i] = value;
-		if (value) coreGlobals.solenoids |= (1u << i);
+		if (value)
+		{
+			coreGlobals.solenoids |= (1u << i);
+			// Copy solenoids 2 and 3 to the VPM dedicated flipper locations
+			if (i == 2)
+				coreGlobals.solenoids2 |= CORE_LLFLIPSOLBITS;
+			if (i == 3)
+				coreGlobals.solenoids2 |= CORE_LRFLIPSOLBITS;
+		}
 	}
-
+	if (dllcrc == DLLCRC_TPAGBDLL)
+	{
+		// See if the flippers are enabled.  If they are, turn on solenoid 33, so VPX
+		// can bypass the switch-solenoid delay, which is fairly high on this for some reason. 
+		uint8_t *mem = flipenableptr;
+		if ((*mem) == 0x03)
+			coreGlobals.solenoids2 |= 0x10;
+	}
 	static int half = 0;
 	if (half++ == 1)
 		half = 0;
@@ -826,7 +840,7 @@ MACHINE_DRIVER_END
 
 #define INITSPAGAME(name, gen, disp, lampcol, hw) \
 	static core_tGameData name##GameData = { \
-		gen, disp, {FLIP_SW(FLIP_L) | FLIP_SOL(FLIP_L), 0, lampcol, 16, 0, 0, hw,0, spa_getSol}}; \
+		gen, disp, {FLIP_SW(FLIP_L) | FLIP_SOL(FLIP_L), 0, lampcol, 14, 0, 0, hw,0, spa_getSol}}; \
 	static void init_##name(void) { core_gameData = &name##GameData; }
 
 /*****************/
