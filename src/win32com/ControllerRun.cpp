@@ -366,6 +366,9 @@ void AdjustWindowPosition(HWND hWnd, CController *pController)
 // save the current window position to the registry, based on the game name
 void SaveWindowPosition(HWND hWnd, CController *pController)
 {
+	if (!g_fShowWinDMD)
+		return;
+
 	RECT Rect;
 	GetWindowRect(hWnd, &Rect);
 
@@ -437,11 +440,11 @@ void SetWindowStyle(HWND hWnd, int iWindowStyle)
 	GetClientRect(hWnd,  &Rect);
 
 	int iWidth = Machine->uiwidth;
-	if ( dmd_width>0 )
+//	if ( dmd_width>0 )
 		iWidth = dmd_width;
 
 	int iHeight = Machine->uiheight;
-	if ( dmd_height>0 )
+//	if ( dmd_height>0 )
 		iHeight = dmd_height;
 
 	Rect.right = iWidth * (dmd_doublesize?2:1);

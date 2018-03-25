@@ -61,7 +61,7 @@ struct {
 	UINT32 solenoidbits[CORE_MODSOL_MAX];
 	UINT32 modulated_lights[WOF_MINIDMD_MAX];  // Also used by Tron ramps
 	UINT8 modulated_lights_prev_levels[WOF_MINIDMD_MAX];
-
+	int refresh_size;
 } spalocals;
 
 uint8_t *spa_fbuffer, *spa_bbuffer, *persistbuf;
@@ -314,7 +314,7 @@ static MACHINE_INIT(spa) {
 		// Load the DLL
 		char path[MAX_PATH];
 
-#ifdef VPINMAME
+#if (defined(VPINMAME) && !defined(_DEBUG))
 		HINSTANCE hInst;
 #ifndef _WIN64
 		hInst = GetModuleHandle("VPinSPA.dll");
@@ -606,6 +606,8 @@ static int spa_getSol(int solNo)
 	return 0;
 }
 
+extern HWND win_video_window;
+
 /********************/
 /*  VBLANK Section  */
 /********************/
@@ -659,6 +661,22 @@ static INTERRUPT_GEN(spa_vblank)
 		half = 0;
 	else
 	{
+		// There is a super bizzare problem where 
+		// the SetWindowsPos windows message is simply ignored for a while
+		// So we need to kick VPM to do this again after a couple frames.
+
+		switch(spalocals.refresh_size)
+		{
+		case 1:
+			SendMessage(win_video_window, RegisterWindowMessage("VPinSPAAdjustWindowMsg"), 0, 0);
+			spalocals.refresh_size++;
+			break;
+		case 2:
+			break;
+		default:
+			spalocals.refresh_size++;
+			break;
+		}
 		time_to_quit |= updatescreen();
 		memset(&coreGlobals.lampMatrix[0], 0, 42);
 

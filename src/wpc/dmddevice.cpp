@@ -14,8 +14,8 @@
 #endif
 
 UINT16	seg_data2[50] = {};
-UINT16	dmd_width = 128;
-UINT16	dmd_height = 32;
+UINT16	pdmd_width = 128;
+UINT16	pdmd_height = 32;
 
 HMODULE hModule;
 
@@ -125,8 +125,8 @@ int pindmdInit(const char* GameName, UINT64 HardwareGeneration, const tPMoptions
 		if (DmdDev_Console_Input_Ptr)
 			DmdDev_Console_Input_Ptr(RcvConsoleInput);
 
-		dmd_width = 128; // set default DMD size
-		dmd_height = 32;
+		pdmd_width = 128; // set default DMD size
+		pdmd_height = 32;
 
 		rgb24 color0,color33,color66,color100;
 
@@ -154,11 +154,11 @@ int pindmdInit(const char* GameName, UINT64 HardwareGeneration, const tPMoptions
 
 void pindmdDeInit() {
 
-	UINT8 *tmpbuffer = (UINT8 *)malloc(dmd_width*dmd_height);
-	memset(tmpbuffer, 0x00, dmd_width*dmd_height);
+	UINT8 *tmpbuffer = (UINT8 *)malloc(pdmd_width*pdmd_height);
+	memset(tmpbuffer, 0x00, pdmd_width*pdmd_height);
 
 	if (DmdDev_Render_4_Shades) 
-		DmdDev_Render_4_Shades(dmd_width, dmd_height, tmpbuffer); //clear screen
+		DmdDev_Render_4_Shades(pdmd_width, pdmd_height, tmpbuffer); //clear screen
 
 	if (DmdDev_Close)
 		DmdDev_Close();
@@ -169,8 +169,8 @@ void pindmdDeInit() {
 
 void renderDMDFrame(UINT64 gen, UINT16 width, UINT16 height, UINT8 *currbuffer, UINT8 doDumpFrame, const char* GameName) {
 
-	dmd_width = width; // store for DeInit
-	dmd_height = height;
+	pdmd_width = width; // store for DeInit
+	pdmd_height = height;
 
 	if ((gen == GEN_SAM) ||
 		// extended handling also for some GTS3 games (SMB, SMBMW and CBW):

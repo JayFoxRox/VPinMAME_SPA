@@ -360,7 +360,7 @@ INLINE void set_aligned_window_pos(HWND wnd, HWND insert, int x, int y, int cx, 
 #ifdef VPINMAME
 	flags |= SWP_NOACTIVATE;
 #endif /* VPinSPA */
-	SetWindowPos(wnd, insert, get_aligned_window_pos(x), y, cx, cy, flags);
+	//SetWindowPos(wnd, insert, get_aligned_window_pos(x), y, cx, cy, flags);
 }
 
 
